@@ -1,0 +1,14 @@
+{
+  "name": "mansion_asessment_problem_2",
+  "version": "0.0.0",
+  "description": "broadcasting_system",
+  "main": "index.js",
+  "author": "Samuil Velinov",
+  "dependencies": {
+    "express": "4.13.4",
+    "socket.io": "*"
+  },
+  "scripts": {
+    "start": "node index.js"
+  }
+}

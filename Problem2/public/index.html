@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Broadcasting system</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!---->
+</head>
+
+<body>
+    <div class="container">
+        <div class="col-sm-2" >
+            <div class="nav-sidebar well">
+                <div id="username">
+                    <h5>Logged as:</h5>
+                </div>
+                <hr />
+
+                <h5>Active Users:</h5>
+                <ul class="list-unstyled" id="active-users"></ul>
+            </div>
+        </div>
+
+
+        <div class="col-sm-10 well pull-right">
+            <div class="col-md-4-offset-6">
+                <div class="well" id="login-field">
+                    <p>Username Field</p>
+
+                    <input class="form-control" id="usernameInput" placeholder="Username">
+                    <button class="btn btn-primary" onClick="setUsername()">Submit</button>
+                </div>
+                <div id="main-window" style="display:none">
+                    <div >
+                        <ul class="list-unstyled" id="messages"></ul>
+                    </div>
+                    <div class="well" id="recipient-field">
+                        <p>Recipient Field</p>
+                        <input class="form-control" id="recipientInput" placeholder="Recipient">
+                        <input class="form-control" id="messageInput" placeholder="Message">
+
+                        <button class="btn btn-primary" onClick="sendMsg()">Send message</button>
+                        <button class="btn btn-default" onClick="broadcastMsg()">Broadcast message to all active users</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script
+            src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

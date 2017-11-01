@@ -1,0 +1,14 @@
+Assuming two pages exist under two different sub domains; one page is included inside the other one, using an iframe.
+The parent page’s URL is: a.mydomain.com
+The inner page’s URL is: b.mydomain.com
+Is it possible for the parent page to call a JavaScript function of the inner page?
+Yes or no, please explain the answer.
+
+Calling a JS function of the inner page from the parent should be possible. However, there are some specifics to be
+considered. Javascript's Same Origin Policy prevents access to properties and methods from different domains.
+In the case given, in order to allow JavaScript interaction between the two documents, the document.domain properties
+of a.mydomain.com and b.mydomain.comhave to be set to mydomain.com. Referencing the Iframe is possible using
+getElementById. The Iframe element provides contentDocument and contentWindow, which grant you access to the
+iframed document's objects and properties. A valid call to a function of the iframed document should look something like
+    var win = document.getElementById('ifrm').contentWindow;
+    win.functionCall();
